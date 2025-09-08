@@ -513,6 +513,142 @@
             box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
         }
 
+        /* 数据概览样式 */
+        .data-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            color: white;
+            position: relative;
+        }
+
+        .overview-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .data-overview h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .overview-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .overview-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .overview-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .data-points {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .data-point {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .data-point.premium {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .data-point.crypto {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .overview-card p {
+            font-size: 0.95em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .overview-summary {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .summary-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .overview-tagline {
+            font-size: 1.1em;
+            margin: 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .overview-tagline i {
+            color: #27ae60;
+            margin-right: 10px;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.5em;
@@ -566,6 +702,41 @@
             .premium-cta {
                 padding: 25px;
             }
+
+            /* 数据概览响应式样式 */
+            .data-overview {
+                padding: 25px;
+            }
+
+            .data-overview h2 {
+                font-size: 1.8em;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .overview-card {
+                padding: 20px;
+            }
+
+            .overview-icon {
+                font-size: 2.5em;
+            }
+
+            .summary-stats {
+                gap: 25px;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .overview-tagline {
+                font-size: 1em;
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -584,6 +755,78 @@
         </header>
 
         <div class="main-content">
+            <!-- 数据概览部分 -->
+            <div class="data-overview">
+                <div class="overview-content">
+                    <h2><i class="fas fa-database"></i> 完整数据维度概览</h2>
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <div class="overview-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>K线数据覆盖</h3>
+                            <div class="data-points">
+                                <span class="data-point">1秒级</span>
+                                <span class="data-point">1分钟</span>
+                                <span class="data-point">5分钟</span>
+                                <span class="data-point">10分钟</span>
+                                <span class="data-point">15分钟</span>
+                                <span class="data-point">30分钟</span>
+                                <span class="data-point">1小时</span>
+                                <span class="data-point">日线</span>
+                            </div>
+                            <p>从超高频到日线的完整时间框架覆盖</p>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h3>深度市场数据</h3>
+                            <div class="data-points">
+                                <span class="data-point premium">Orderbook</span>
+                                <span class="data-point premium">Tradebook</span>
+                            </div>
+                            <p>机构级订单簿和交易簿数据<br>专业交易者必备</p>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <h3>主流币种</h3>
+                            <div class="data-points">
+                                <span class="data-point crypto">BTC</span>
+                                <span class="data-point crypto">ETH</span>
+                                <span class="data-point crypto">更多币种</span>
+                            </div>
+                            <p>涵盖比特币、以太坊等<br>主流加密货币数据</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-summary">
+                        <div class="summary-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">19+</span>
+                                <span class="stat-label">个月历史数据</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">个时间框架</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4,624+</span>
+                                <span class="stat-label">个数据文件</span>
+                            </div>
+                        </div>
+                        <p class="overview-tagline">
+                            <i class="fas fa-check-circle"></i>
+                            <strong>无论您是量化交易新手还是专业研究人员，我们都有适合您需求的数据解决方案</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div class="promo-banner">
                 <div class="promo-content">
                     <h2><i class="fas fa-fire"></i> 限时优惠！</h2>
@@ -612,15 +855,16 @@
 │   ├── 30min/    # 半小时分析
 │   ├── 60min/    # 小时数据
 │   └── daily/    # 日线汇总
-└── BTC/
-    ├── 1sec/     # 完整镜像结构
-    ├── 1min/     # 比特币数据
-    ├── 5min/     # 包含所有时间框架
-    ├── 10min/    # 专业级质量
-    ├── 15min/    # 即用型分析
-    ├── 30min/    # CSV格式
-    ├── 60min/    # 易于处理
-    └── daily/    # 历史深度</div>
+
+├── BTC/
+│   ├── 1sec/     # 超高频数据
+│   ├── 1min/     # 分钟级精度
+│   ├── 5min/     # 短期分析
+│   ├── 10min/    # 中期模式
+│   ├── 15min/    # 15分钟间隔
+│   ├── 30min/    # 半小时分析
+│   ├── 60min/    # 小时数据
+│   └── daily/    # 日线汇总   </div>
                     <p><strong>数据格式：</strong>清洁的CSV文件，包含OHLCV数据（开盘价、最高价、最低价、收盘价、成交量、成交额）</p>
                     <p><strong>覆盖范围：</strong>2024年1月至2025年7月的完整历史数据（19个月）</p>
                     <p><strong>文件数量：</strong>每个加密货币4,624个文件（578天 × 8个时间框架）</p>
@@ -694,16 +938,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <div style="margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 8px; border-left: 4px solid #3498db;">
-                        <h4 style="color: #2c3e50; margin-bottom: 10px;"><i class="fas fa-info-circle"></i> 数据质量特性：</h4>
-                        <ul style="margin: 0; padding-left: 20px; color: #2c3e50;">
-                            <li><strong>时间戳精度：</strong>分钟级精度，格式一致</li>
-                            <li><strong>价格数据：</strong>高精度小数值，确保分析准确性</li>
-                            <li><strong>成交量指标：</strong>包含成交量和成交额，提供全面洞察</li>
-                            <li><strong>数据验证：</strong>所有记录均经过验证和清理，确保一致性</li>
-                            <li><strong>无缺失值：</strong>完整的数据覆盖，无空白</li>
-                        </ul>
-                    </div>
                 </div>
             </section>
 
@@ -722,7 +956,7 @@
                         </div>
                         <ul class="features">
                             <li><i class="fas fa-check"></i> 完整的ETH和BTC历史数据</li>
-                            <li><i class="fas fa-check"></i> 2024年至2025年8月覆盖</li>
+                            <li><i class="fas fa-check"></i> 2024年至2025年7月覆盖</li>
                             <li><i class="fas fa-check"></i> 每个币种8个时间框架（1秒到日线）</li>
                             <li><i class="fas fa-check"></i> 专业CSV格式</li>
                             <li><i class="fas fa-check"></i> 终身访问权限</li>

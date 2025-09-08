@@ -513,7 +513,141 @@
             box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
         }
 
+        /* Data Overview Styles */
+        .data-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            color: white;
+            position: relative;
+        }
 
+        .overview-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .data-overview h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .overview-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .overview-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .overview-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .data-points {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .data-point {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .data-point.premium {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .data-point.crypto {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .overview-card p {
+            font-size: 0.95em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .overview-summary {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .summary-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .overview-tagline {
+            font-size: 1.1em;
+            margin: 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .overview-tagline i {
+            color: #27ae60;
+            margin-right: 10px;
+        }
 
         @media (max-width: 768px) {
             .header h1 {
@@ -568,6 +702,41 @@
             .premium-cta {
                 padding: 25px;
             }
+
+            /* Data Overview Responsive Styles */
+            .data-overview {
+                padding: 25px;
+            }
+
+            .data-overview h2 {
+                font-size: 1.8em;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .overview-card {
+                padding: 20px;
+            }
+
+            .overview-icon {
+                font-size: 2.5em;
+            }
+
+            .summary-stats {
+                gap: 25px;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .overview-tagline {
+                font-size: 1em;
+                padding: 15px;
+            }
         }
     </style>
 </head>
@@ -586,6 +755,78 @@
         </header>
 
         <div class="main-content">
+            <!-- Data Overview Section -->
+            <div class="data-overview">
+                <div class="overview-content">
+                    <h2><i class="fas fa-database"></i> Complete Data Dimensions Overview</h2>
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <div class="overview-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>K-Line Data Coverage</h3>
+                            <div class="data-points">
+                                <span class="data-point">1-second</span>
+                                <span class="data-point">1-minute</span>
+                                <span class="data-point">5-minute</span>
+                                <span class="data-point">10-minute</span>
+                                <span class="data-point">15-minute</span>
+                                <span class="data-point">30-minute</span>
+                                <span class="data-point">1-hour</span>
+                                <span class="data-point">Daily</span>
+                            </div>
+                            <p>Complete timeframe coverage from ultra-high frequency to daily</p>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h3>Deep Market Data</h3>
+                            <div class="data-points">
+                                <span class="data-point premium">Orderbook</span>
+                                <span class="data-point premium">Tradebook</span>
+                            </div>
+                            <p>Institutional-grade order book and trade book data<br>Essential for professional traders</p>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <h3>Major Cryptocurrencies</h3>
+                            <div class="data-points">
+                                <span class="data-point crypto">BTC</span>
+                                <span class="data-point crypto">ETH</span>
+                                <span class="data-point crypto">More Coins</span>
+                            </div>
+                            <p>Covering Bitcoin, Ethereum and other<br>major cryptocurrency data</p>
+                        </div>
+                    </div>
+
+                    <div class="overview-summary">
+                        <div class="summary-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">19+</span>
+                                <span class="stat-label">Months of History</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">Timeframes</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4,624+</span>
+                                <span class="stat-label">Data Files</span>
+                            </div>
+                        </div>
+                        <p class="overview-tagline">
+                            <i class="fas fa-check-circle"></i>
+                            <strong>Whether you're a quantitative trading beginner or professional researcher, we have the data solution for your needs</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div class="promo-banner">
                 <div class="promo-content">
                     <h2><i class="fas fa-fire"></i> LIMITED TIME OFFER!</h2>
@@ -696,16 +937,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <div style="margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 8px; border-left: 4px solid #3498db;">
-                        <h4 style="color: #2c3e50; margin-bottom: 10px;"><i class="fas fa-info-circle"></i> Data Quality Features:</h4>
-                        <ul style="margin: 0; padding-left: 20px; color: #2c3e50;">
-                            <li><strong>Timestamp Precision:</strong> Minute-level accuracy with consistent formatting</li>
-                            <li><strong>Price Data:</strong> High-precision decimal values for accurate analysis</li>
-                            <li><strong>Volume Metrics:</strong> Both volume and turnover for comprehensive insights</li>
-                            <li><strong>Data Validation:</strong> All records verified and cleaned for consistency</li>
-                            <li><strong>No Missing Values:</strong> Complete data coverage with no gaps</li>
-                        </ul>
-                    </div>
                 </div>
             </section>
 
@@ -724,7 +955,7 @@
                         </div>
                         <ul class="features">
                             <li><i class="fas fa-check"></i> Complete ETH & BTC historical data</li>
-                            <li><i class="fas fa-check"></i> 2024 to August 2025 coverage</li>
+                            <li><i class="fas fa-check"></i> 2024 to July 2025 coverage</li>
                             <li><i class="fas fa-check"></i> 8 timeframes per coin (1sec to daily)</li>
                             <li><i class="fas fa-check"></i> Professional CSV format</li>
                             <li><i class="fas fa-check"></i> Lifetime access</li>
