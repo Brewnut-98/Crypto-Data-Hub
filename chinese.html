@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加密数据中心 - 专业区块链数据解决方案</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .language-selector {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .language-selector h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .language-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .language-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .language-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .promo-banner {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .promo-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .promo-banner h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .data-structure {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .data-structure h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .structure-tree {
+            font-family: 'Courier New', monospace;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            line-height: 1.6;
+            white-space: pre-line;
+            font-size: 14px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: '最受欢迎';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #667eea;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .price-note {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features i {
+            color: #27ae60;
+            margin-right: 10px;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.8;
+        }
+
+        .csv-sample {
+            margin: 20px 0;
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .data-table th {
+            background: #3498db;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 2px solid #2980b9;
+        }
+
+        .data-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #ecf0f1;
+            color: #2c3e50;
+        }
+
+        .data-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: #fdfdfd;
+        }
+
+        .premium-data-section {
+            margin: 40px 0;
+        }
+
+        .premium-banner {
+            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: shine 4s linear infinite;
+        }
+
+        .premium-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .premium-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 2px solid #e8f4fd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8e44ad, #3498db, #e74c3c, #f39c12);
+        }
+
+        .premium-header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .premium-icon {
+            font-size: 3em;
+            color: #8e44ad;
+            margin-bottom: 15px;
+        }
+
+        .premium-header h4 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .exclusive-badge {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            transform: rotate(15deg);
+        }
+
+        .premium-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .premium-features li {
+            padding: 8px 0;
+            color: #2c3e50;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .premium-features li:last-child {
+            border-bottom: none;
+        }
+
+        .premium-features i {
+            color: #27ae60;
+            margin-right: 10px;
+        }
+
+        .premium-sample {
+            margin-top: 20px;
+            padding: 15px;
+            background: #2c3e50;
+            border-radius: 10px;
+        }
+
+        .premium-sample h5 {
+            color: #ecf0f1;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .code-sample {
+            font-family: 'Courier New', monospace;
+            color: #3498db;
+            font-size: 0.85em;
+            word-break: break-all;
+        }
+
+        .premium-cta {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .premium-cta h3 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .use-cases {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .use-case {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+        }
+
+        .premium-contact {
+            margin-top: 30px;
+        }
+
+        .premium-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .premium-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .language-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .structure-tree {
+                font-size: 12px;
+                padding: 15px;
+                overflow-x: scroll;
+            }
+
+            .data-table {
+                font-size: 11px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 8px 4px;
+            }
+
+            .premium-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .premium-card {
+                padding: 20px;
+            }
+
+            .use-cases {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .premium-cta {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-chart-line"></i> 加密数据中心</h1>
+            <p>为交易者、研究人员和开发者提供专业的区块链数据解决方案</p>
+            <p style="font-size: 1.1em; margin-top: 15px;">🚀 <strong>清洁、有序、标准化的数据，助力您的加密货币分析</strong></p>
+
+            <div style="margin-top: 30px;">
+                <a href="index.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 1.1em;">
+                    🇺🇸 <strong>English Version</strong> | 英文版本
+                </a>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="promo-banner">
+                <div class="promo-content">
+                    <h2><i class="fas fa-fire"></i> 限时优惠！</h2>
+                    <p><strong>新用户专享：</strong>历史数据包最高可享5折优惠！</p>
+                    <p>🎯 完美适用于回测、算法交易、研究和策略开发</p>
+                    <p style="margin-top: 15px; font-size: 1.1em;">
+                        <i class="fas fa-download"></i> <strong>即时访问</strong> |
+                        <i class="fas fa-shield-alt"></i> <strong>专业品质</strong> |
+                        <i class="fas fa-clock"></i> <strong>多时间框架</strong>
+                    </p>
+                </div>
+            </div>
+
+            <section class="section">
+                <h2><i class="fas fa-database"></i> 我们的数据结构</h2>
+                <div class="data-structure">
+                    <h3>完整的多时间框架覆盖</h3>
+                    <p>我们的数据经过精心整理，提供多个时间框架以满足全面分析需求：</p>
+                    <div class="structure-tree">shared-crypto-data/
+├── ETH/
+│   ├── 1sec/     # 超高频数据
+│   ├── 1min/     # 分钟级精度
+│   ├── 5min/     # 短期分析
+│   ├── 10min/    # 中期模式
+│   ├── 15min/    # 15分钟间隔
+│   ├── 30min/    # 半小时分析
+│   ├── 60min/    # 小时数据
+│   └── daily/    # 日线汇总
+└── BTC/
+    ├── 1sec/     # 完整镜像结构
+    ├── 1min/     # 比特币数据
+    ├── 5min/     # 包含所有时间框架
+    ├── 10min/    # 专业级质量
+    ├── 15min/    # 即用型分析
+    ├── 30min/    # CSV格式
+    ├── 60min/    # 易于处理
+    └── daily/    # 历史深度</div>
+                    <p><strong>数据格式：</strong>清洁的CSV文件，包含OHLCV数据（开盘价、最高价、最低价、收盘价、成交量、成交额）</p>
+                    <p><strong>覆盖范围：</strong>2024年1月至2025年7月的完整历史数据（19个月）</p>
+                    <p><strong>文件数量：</strong>每个加密货币4,624个文件（578天 × 8个时间框架）</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-table"></i> CSV数据样本</h2>
+                <div class="data-structure">
+                    <h3>专业OHLCV格式</h3>
+                    <p>每个CSV文件都包含清洁、标准化的数据，具有以下结构：</p>
+                    <div class="csv-sample">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>date</th>
+                                    <th>open</th>
+                                    <th>high</th>
+                                    <th>low</th>
+                                    <th>close</th>
+                                    <th>volume</th>
+                                    <th>turnover</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024/1/1 0:00</td>
+                                    <td>42314</td>
+                                    <td>42335.8</td>
+                                    <td>42289.6</td>
+                                    <td>42331.9</td>
+                                    <td>289.641</td>
+                                    <td>12256155.256250</td>
+                                </tr>
+                                <tr>
+                                    <td>2024/1/1 0:01</td>
+                                    <td>42331.9</td>
+                                    <td>42353.1</td>
+                                    <td>42331.8</td>
+                                    <td>42350.4</td>
+                                    <td>202.444</td>
+                                    <td>8572240.955</td>
+                                </tr>
+                                <tr>
+                                    <td>2024/1/1 0:02</td>
+                                    <td>42350.4</td>
+                                    <td>42370.8</td>
+                                    <td>42349.6</td>
+                                    <td>42360.2</td>
+                                    <td>271.521</td>
+                                    <td>11501389.349600</td>
+                                </tr>
+                                <tr>
+                                    <td>2024/1/1 0:03</td>
+                                    <td>42360.1</td>
+                                    <td>42405.8</td>
+                                    <td>42360.1</td>
+                                    <td>42405.8</td>
+                                    <td>392.238</td>
+                                    <td>16626439.803800</td>
+                                </tr>
+                                <tr>
+                                    <td>2024/1/1 0:04</td>
+                                    <td>42405.7</td>
+                                    <td>42437.2</td>
+                                    <td>42405.7</td>
+                                    <td>42437.1</td>
+                                    <td>568.366</td>
+                                    <td>24112608.769940</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 8px; border-left: 4px solid #3498db;">
+                        <h4 style="color: #2c3e50; margin-bottom: 10px;"><i class="fas fa-info-circle"></i> 数据质量特性：</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: #2c3e50;">
+                            <li><strong>时间戳精度：</strong>分钟级精度，格式一致</li>
+                            <li><strong>价格数据：</strong>高精度小数值，确保分析准确性</li>
+                            <li><strong>成交量指标：</strong>包含成交量和成交额，提供全面洞察</li>
+                            <li><strong>数据验证：</strong>所有记录均经过验证和清理，确保一致性</li>
+                            <li><strong>无缺失值：</strong>完整的数据覆盖，无空白</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-gem"></i> 标准数据包</h2>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card featured">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fas fa-archive"></i> 历史数据档案</div>
+                            <div class="price">
+                                <span class="original-price">$300</span>
+                                $150
+                            </div>
+                            <div class="price-note">一次性付费 • ETH + BTC 套餐</div>
+                        </div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 完整的ETH和BTC历史数据</li>
+                            <li><i class="fas fa-check"></i> 2024年至2025年8月覆盖</li>
+                            <li><i class="fas fa-check"></i> 每个币种8个时间框架（1秒到日线）</li>
+                            <li><i class="fas fa-check"></i> 专业CSV格式</li>
+                            <li><i class="fas fa-check"></i> 终身访问权限</li>
+                            <li><i class="fas fa-check"></i> <strong>5折优惠</strong> - 新用户专享！</li>
+                        </ul>
+                        <a href="#" class="cta-button">
+                            <i class="fas fa-shopping-cart"></i> 获取历史数据 - $150
+                        </a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fas fa-calendar-alt"></i> 月度数据订阅</div>
+                            <div class="price">
+                                <span class="original-price">$50</span>
+                                $20
+                            </div>
+                            <div class="price-note">每月 • ETH + BTC 套餐</div>
+                        </div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 最新月份的完整数据</li>
+                            <li><i class="fas fa-check"></i> 包含ETH和BTC</li>
+                            <li><i class="fas fa-check"></i> 全部8个时间框架</li>
+                            <li><i class="fas fa-check"></i> 持续更新</li>
+                            <li><i class="fas fa-check"></i> 随时取消</li>
+                            <li><i class="fas fa-check"></i> <strong>6折优惠</strong> - 新用户专享！</li>
+                        </ul>
+                        <a href="#" class="cta-button">
+                            <i class="fas fa-sync-alt"></i> 月度订阅 - $20
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-crown"></i> 高端独家数据</h2>
+                <div class="premium-data-section">
+                    <div class="premium-banner">
+                        <div class="premium-content">
+                            <h3><i class="fas fa-star"></i> 超稀有市场数据现已开放</h3>
+                            <p>我们提供机构级orderbook和tradebook数据的独家访问权限 - 这是专业交易者和研究人员最宝贵的数据集。</p>
+                        </div>
+                    </div>
+
+                    <div class="premium-grid">
+                        <div class="premium-card">
+                            <div class="premium-header">
+                                <i class="fas fa-layer-group premium-icon"></i>
+                                <h4>订单簿数据 (Orderbook)</h4>
+                                <span class="exclusive-badge">独家</span>
+                            </div>
+                            <div class="premium-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 完整市场深度 (Level 2 数据)</li>
+                                    <li><i class="fas fa-check"></i> 实时买卖价差</li>
+                                    <li><i class="fas fa-check"></i> 订单流分析就绪</li>
+                                    <li><i class="fas fa-check"></i> 流动性模式洞察</li>
+                                    <li><i class="fas fa-check"></i> 做市商行为数据</li>
+                                </ul>
+                            </div>
+                            <div class="premium-sample">
+                                <h5>数据结构样本:</h5>
+                                <div class="csv-sample">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>exchange</th>
+                                                <th>symbol</th>
+                                                <th>timestamp</th>
+                                                <th>ask_price</th>
+                                                <th>bid_price</th>
+                                                <th>ask_amount</th>
+                                                <th>bid_amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>binance-futures</td>
+                                                <td>BTCUSDT</td>
+                                                <td>1740700800039000</td>
+                                                <td>84668.2</td>
+                                                <td>84668.1</td>
+                                                <td>0.244</td>
+                                                <td>14.548</td>
+                                            </tr>
+                                            <tr>
+                                                <td>binance-futures</td>
+                                                <td>BTCUSDT</td>
+                                                <td>1740700804368000</td>
+                                                <td>84668.2</td>
+                                                <td>84668.1</td>
+                                                <td>0.244</td>
+                                                <td>14.516</td>
+                                            </tr>
+                                            <tr>
+                                                <td>binance-futures</td>
+                                                <td>BTCUSDT</td>
+                                                <td>1740700804371000</td>
+                                                <td>84668.2</td>
+                                                <td>84668.1</td>
+                                                <td>0.244</td>
+                                                <td>13.577</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="margin-top: 15px; padding: 10px; background: #e8f4fd; border-radius: 8px; border-left: 4px solid #8e44ad;">
+                                    <p style="margin: 0; color: #2c3e50; font-size: 0.9em;"><strong>📁 文件:</strong> binance-futures_book_ticker_2025-02-28_BTCUSDT.csv</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="premium-card">
+                            <div class="premium-header">
+                                <i class="fas fa-exchange-alt premium-icon"></i>
+                                <h4>交易簿数据 (Tradebook)</h4>
+                                <span class="exclusive-badge">独家</span>
+                            </div>
+                            <div class="premium-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 每笔执行交易记录</li>
+                                    <li><i class="fas fa-check"></i> 买方/卖方发起标识</li>
+                                    <li><i class="fas fa-check"></i> 交易规模分布</li>
+                                    <li><i class="fas fa-check"></i> 市场影响分析</li>
+                                    <li><i class="fas fa-check"></i> 机构资金流检测</li>
+                                </ul>
+                            </div>
+                            <div class="premium-sample">
+                                <h5>数据结构样本:</h5>
+                                <div class="csv-sample">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>exchange</th>
+                                                <th>symbol</th>
+                                                <th>timestamp</th>
+                                                <th>side</th>
+                                                <th>price</th>
+                                                <th>amount</th>
+                                                <th>id</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>binance-futures</td>
+                                                <td>BTCUSDT</td>
+                                                <td>1740700804382000</td>
+                                                <td>buy</td>
+                                                <td>84668.2</td>
+                                                <td>0.002</td>
+                                                <td>6015699039</td>
+                                            </tr>
+                                            <tr>
+                                                <td>binance-futures</td>
+                                                <td>BTCUSDT</td>
+                                                <td>1740700804413000</td>
+                                                <td>sell</td>
+                                                <td>84668.1</td>
+                                                <td>0.001</td>
+                                                <td>6015699040</td>
+                                            </tr>
+                                            <tr>
+                                                <td>binance-futures</td>
+                                                <td>BTCUSDT</td>
+                                                <td>1740700804415000</td>
+                                                <td>buy</td>
+                                                <td>84668.2</td>
+                                                <td>0.012</td>
+                                                <td>6015699041</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="margin-top: 15px; padding: 10px; background: #e8f4fd; border-radius: 8px; border-left: 4px solid #8e44ad;">
+                                    <p style="margin: 0; color: #2c3e50; font-size: 0.9em;"><strong>📁 文件:</strong> binance-futures_trades_2025-02-28_BTCUSDT.csv</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-cta">
+                        <div class="premium-cta-content">
+                            <h3><i class="fas fa-gem"></i> 机构级市场微观结构数据</h3>
+                            <p>这些数据集通常只对对冲基金和机构交易者开放。完美适用于：</p>
+                            <div class="use-cases">
+                                <span class="use-case"><i class="fas fa-robot"></i> 高频交易</span>
+                                <span class="use-case"><i class="fas fa-chart-area"></i> 做市策略</span>
+                                <span class="use-case"><i class="fas fa-university"></i> 学术研究</span>
+                                <span class="use-case"><i class="fas fa-search-dollar"></i> 流动性分析</span>
+                            </div>
+                            <div class="premium-contact">
+                                <p><strong>定制化定价</strong> - 联系我们的团队获取报价和数据样本</p>
+                                <a href="#" class="premium-button">
+                                    <i class="fas fa-envelope"></i> 联系获取高端数据访问权限
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-gem"></i> 标准数据包</h2>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card featured">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fas fa-archive"></i> 历史数据档案</div>
+                            <div class="price">
+                                <span class="original-price">$300</span>
+                                $150
+                            </div>
+                            <div class="price-note">一次性付费 • ETH + BTC 套餐</div>
+                        </div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 完整的ETH和BTC历史数据</li>
+                            <li><i class="fas fa-check"></i> 2024年至2025年8月覆盖</li>
+                            <li><i class="fas fa-check"></i> 每个币种8个时间框架（1秒到日线）</li>
+                            <li><i class="fas fa-check"></i> 专业CSV格式</li>
+                            <li><i class="fas fa-check"></i> 终身访问权限</li>
+                            <li><i class="fas fa-check"></i> <strong>5折优惠</strong> - 新用户专享！</li>
+                        </ul>
+                        <a href="#purchase" class="cta-button">
+                            <i class="fas fa-shopping-cart"></i> 获取历史数据 - $150
+                        </a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="card-header">
+                            <div class="card-title"><i class="fas fa-calendar-alt"></i> 月度数据订阅</div>
+                            <div class="price">
+                                <span class="original-price">$50</span>
+                                $20
+                            </div>
+                            <div class="price-note">每月 • ETH + BTC 套餐</div>
+                        </div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> 最新月份的完整数据</li>
+                            <li><i class="fas fa-check"></i> 包含ETH和BTC</li>
+                            <li><i class="fas fa-check"></i> 全部8个时间框架</li>
+                            <li><i class="fas fa-check"></i> 持续更新</li>
+                            <li><i class="fas fa-check"></i> 随时取消</li>
+                            <li><i class="fas fa-check"></i> <strong>6折优惠</strong> - 新用户专享！</li>
+                        </ul>
+                        <a href="#purchase" class="cta-button">
+                            <i class="fas fa-sync-alt"></i> 月度订阅 - $20
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><i class="fas fa-star"></i> 为什么选择我们的数据？</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                    <div style="text-align: center; padding: 20px;">
+                        <i class="fas fa-shield-alt" style="font-size: 3em; color: #27ae60; margin-bottom: 15px;"></i>
+                        <h3>清洁可靠</h3>
+                        <p>专业处理和验证的数据，格式一致可靠</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <i class="fas fa-clock" style="font-size: 3em; color: #3498db; margin-bottom: 15px;"></i>
+                        <h3>多时间框架</h3>
+                        <p>从1秒精度到日线汇总 - 适合任何分析需求</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px;">
+                        <i class="fas fa-download" style="font-size: 3em; color: #9b59b6; margin-bottom: 15px;"></i>
+                        <h3>便捷访问</h3>
+                        <p>简单的下载流程，有序的文件夹结构</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="purchase">
+                <h2><i class="fas fa-credit-card"></i> 如何购买</h2>
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; text-align: center;">
+                    <p style="font-size: 1.2em; margin-bottom: 20px;">准备开始使用专业加密货币数据了吗？</p>
+                    <p style="margin-bottom: 30px;">联系我们完成购买并立即获得您的数据包访问权限。</p>
+                    <a href="#" class="cta-button" style="display: inline-block; width: auto; padding: 15px 40px;">
+                        <i class="fas fa-envelope"></i> 联系我们购买
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>专业区块链数据解决方案</p>
+            <p><i class="fas fa-chart-line"></i> 为全球交易者和研究人员赋能</p>
+        </footer>
+    </div>
+</body>
+</html>

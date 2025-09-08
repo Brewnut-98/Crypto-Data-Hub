@@ -1,0 +1,41 @@
+# GitHub Pages Configuration
+title: "Crypto Data Hub"
+description: "Premium blockchain data solutions for traders, researchers, and developers"
+url: "https://brewnut.github.io"
+baseurl: "/wasabi"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+author: "Crypto Data Hub"
+twitter:
+  username: cryptodatahub
+  card: summary_large_image
+
+# Social links
+social:
+  name: Crypto Data Hub
+  links:
+    - https://github.com/brewnut/wasabi
+
+# Google Analytics (optional)
+# google_analytics: UA-XXXXXXXX-X
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
